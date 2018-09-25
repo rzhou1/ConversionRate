@@ -1,5 +1,17 @@
 # Conversion rate: Exploring sampling on highly imbalanced data
-## In this 
+#### This repo will cover data sampling on highly imblanced original data and their effect on improving performance of selected machine learning algorithm. The metrics selection will be also discussed.
+
+## Background
+
+
+## Data sampling
+
+
+## Modeling
+
+## Discussion
+
+## Summary
 
 
 
