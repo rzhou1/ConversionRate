@@ -29,20 +29,24 @@ Figure 1. Receiver operating characteristics by RandomForest (left) and XGBoost 
   
   To this end, we have successfully predicted conversion rate from test data and evaluated model performance. We then turn to understand what matter(s) the most regarding conversion rate. The feature importances for two models (both using base dataset) were shown in Table 2. "Total_pages_visited" has been unanimously recoginized as the most important feature by both models. This could be explained by that people are interested in this website tending to visit more pages such as for understanding more details, filling required infos, checking service updates, etc. In reality, this is like a leaked feature, since we cannot say whether more visits lead to conversion or the converted visit the websites more frequent thereafter. "new_user" and "country_China" have also shown high importance to both models. As shown in Figure 2, both shows much lower conversion rate compared to their counterpart features. "age" has stand out in XGBoost but not in RandomForest. In addition, source plays insignificant role here.
   
-  What if we removed the feature "total_pages_converted"? Are machine learning algorithms able to give reasonable predictions using the remaining features. We repeated the data sampling and modeling processes as described above. 
+  What if we removed the feature "total_pages_converted"? Are machine learning algorithms able to give reasonable predictions using the remaining features. We repeated the data sampling and modeling processes as described above. Unfortunately, all the models result in very poor prediction, very low precision and true positive. It is interesting to find that base models result in the best accuracy but zero in true positive. Again, predictive accuracy is not appropriate for evaluating models with imbalanced dataset. Besides, this result suggests that strong feature(s) like "total_pages_visited" here are of utmost importance for correct prediction by machine learning models.
   
-  
-  
-  
-## 4. Summary
+## 4. Summary and suggestion
 
-## 5. Reference for data resampling
+  Data resampling was explored to balancing the original highly-imbalanced dataset. The model results suggest that resampling is able to improving recall significantly (at the cost of precison reduction). 
+  
+  The feature 'total_pages_visited' has intrinsic correlation with conversion. More pages visiting very likely because people have decided to converting. Promoting more page visits may or may not result in higher conversion rate. An A/B test can be designed to promoting pages visit to a group of web-visitors while the other group without any promotion. The two groups should have almost idential distribution in term of country, age, and new_user population.
 
-CNN - "Addressing the Curse of Imbalanced Training Sets: One-Sided Selection", by Kubat et al., 1997.
-One-Sided Selection - "Addressing the Curse of Imbalanced Training Sets: One-Sided Selection", by Kubat et al., 1997.
-NCL - "Improving identification of difficult small classes by balancing class distribution", by Laurikkala et al., 2001.
+  China has much lower conversion rate compared to the remaining countries, though it has generally similar distributions in age and new_user population and source. This is likely western world based websites. Is there a promotion difference b/t western world and China? Or cultural difference b/t China and western world contributing to the conversion? Or translation inaccuracy? Or a strong competitor locally in China? All these should be investigated and there are huge room to improving conversion rate in China.
+  
+  Young age typically has higher conversion rate. Thus, in the next promotion, targeting young population could result in higher conversion rate. In addition, it is also necessary to ask why the service attracks more young people but not the older? Is it because of service nature or others? Also, there are also large room to improving conversion rate by even leveling off all ages to the young class.
+
+  The new_user has much lower conversion rate. By screening out their characteristics (such as young age, from western world, having several pages visited), targeting new_user (eg. by promotion or sending reminding messages) may result in revisiting by new_users and thus have the conversion.
+
+## 5. Reference for data sampling
+
 SMOTE - "SMOTE: synthetic minority over-sampling technique", by Chawla et al., 2002.
-Borderline SMOTE - "Borderline-SMOTE: A New Over-Sampling Method in Imbalanced Data Sets Learning", by Han et al., 2005
+Borderline SMOTE - "Borderline-SMOTE: A New Over-Sampling Method in Imbalanced Data Sets Learning", by Han et al., 2005.
 SVM_SMOTE - "Borderline Over-sampling for Imbalanced Data Classification", Nguyen et al., 2011.
 SMOTE + Tomek - "Balancing training data for automated annotation of keywords: a case study", Batista et al., 2003.
 SMOTE + ENN - "A study of the behavior of several methods for balancing machine learning training data", Batista et al., 2004.
