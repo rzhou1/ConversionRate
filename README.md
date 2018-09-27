@@ -27,7 +27,8 @@ Figure 1. Receiver operating characteristics by RandomForest (left) and XGBoost 
 
 |model|resampling|precision|recall|f1|accuracy|auc|confusion_matrix|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|RF|base|0.936237|0.502712|
+|RF|base|0.936237|0.502712|0.654169|0.983462|0.965088|[[91760, 101], [1467, 1483]]|
+|RF|RandomUnderSampler|0.355634|0.924407|0.513656|0.945534|0.978916|[[86920, 4941], [223, 2727]]|
 
 Table 1. Prediction metrics from both RandomForest and XGBoost using base and resampled datasets.
 
