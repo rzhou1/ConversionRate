@@ -25,10 +25,24 @@ Figure 1. Receiver operating characteristics by RandomForest (left) and XGBoost 
 
   The ROC shown in Figure 1 were generated from both models with different datasets. All classifiers result in good AUC, suggesting two classes from test dataset well-separated. However, according to metric performance, in general, XGBoost is better than RandomForest regardless of using base or resampled datasets. Comparing base with resampled, as shown in table 1, the latter result in drastic improvement in recall but at a cost of more dramatic decreasing in precision, suggesting a tradeoff of predicting less false negatives but more false positives. This is understandable since positive is a class of under-represented in original dataset but manually resampled to be balanced with negative. Thus, this resampling will enlarge features (leading to predictive positives) that in reality may not necessarily is true positive. Due to more imbalanced precision and recall from resampled models, base model gives the best F1 score. However, this does not negate the usefulness of resampling techniques in such problems. If a business model wants to minimize false negatives (do not want to miss any opportunity to convert a customer) more than minimize false positive, resampling is a favored choice. On the contrary, if minimizing false positive is upheld, then base model (say, RandomForest here) is a choice.
 
-|model|resampling|precision|recall|f1|accuracy|auc|confusion_matrix|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|RF|base|0.936237|0.502712|0.654169|0.983462|0.965088|[[91760, 101], [1467, 1483]]|
-|RF|RandomUnderSampler|0.355634|0.924407|0.513656|0.945534|0.978916|[[86920, 4941], [223, 2727]]|
+|no.||model|resampling|precision|recall|f1|accuracy|auc|confusion_matrix|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|1|RF|base|0.936237|0.502712|0.654169|0.983462|0.965088|[[91760, 101], [1467, 1483]]|
+|2|RF|RandomUnderSampler|0.355634|0.924407|0.513656|0.945534|0.978916|[[86920, 4941], [223, 2727]]|
+|3|RF|	RandomOverSampler|	0.352812|	0.927119|	0.511119|	0.944817|	0.979179|	[[86844, 5017], [215, 2735]]|
+|4|RF|	SMOTE|	0.355225|	0.924068|	0.513178|	0.945449|	0.978526|	[[86913, 4948], [224, 2726]]|
+|5|RF|	SMOTEENN|	0.367605|	0.916271|	0.524702|	0.94835|0.977473|	[[87211, 4650], [247, 2703]]|
+|6|RF|	SMOTETomek|	0.352365|	0.92678|	0.510599|	0.944722|	0.978879|	[[86836, 5025], [216, 2734]]|
+|7|RF|	EasyEnsemble|	0.352941|	0.927458|	0.511306|	0.944838|	0.978711|	[[86845, 5016], [214, 2736]]|
+|8|RF|	BalanceCascade|	0.365946|	0.917966|	0.523285|	0.94796|	0.978506|	[[87169, 4692], [242, 2708]]|
+|9|XGB|	base|	0.842934|	0.689492|	0.758531|	0.986341|	0.985684|	[[91482, 379], [916, 2034]]|
+|10|XGB|	RandomUnderSampler|	0.351393|	0.932203|	0.510393|	0.944352|	0.985669|	[[86785, 5076], [200, 2750]]|
+|11|XGB|	RandomOverSampler|	0.340528|	0.935932|	0.499367|	0.94161|	0.985703|	[[86514, 5347], [189, 2761]]|
+|12|XGB|	SMOTE|	0.38012|0.921695|	0.53825|	0.950797|	0.985516|	[[87427, 4434], [231, 2719]]|
+|13|XGB|	SMOTEENN|	0.383811|	0.921017|	0.541829|	0.951535|	0.985393|	[[87499, 4362], [233, 2717]]|
+|14|XGB|	SMOTETomek|	0.373732|	0.924068|	0.532214|	0.949457|	0.985416|	[[87293, 4568], [224, 2726]]|
+|15|XGB|	EasyEnsemble|	0.341427|	0.934237|	0.500091|	0.941884|	0.985698|	[[86545, 5316], [194, 2756]]|
+|16|XGB|	BalanceCascade|	0.353312|	0.931186|	0.512261|	0.944827|	0.985708|	[[86833, 5028], [203, 2747|
 
 Table 1. Prediction metrics from both RandomForest and XGBoost using base and resampled datasets.
 
