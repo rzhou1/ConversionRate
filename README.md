@@ -25,6 +25,10 @@ Figure 1. Receiver operating characteristics by RandomForest (left) and XGBoost 
 
   The ROC shown in Figure 1 were generated from both models with different datasets. All classifiers result in good AUC, suggesting two classes from test dataset well-separated. However, according to metric performance, in general, XGBoost is better than RandomForest regardless of using base or resampled datasets. Comparing base with resampled, as shown in table 1, the latter result in drastic improvement in recall but at a cost of more dramatic decreasing in precision, suggesting a tradeoff of predicting less false negatives but more false positives. This is understandable since positive is a class of under-represented in original dataset but manually resampled to be balanced with negative. Thus, this resampling will enlarge features (leading to predictive positives) that in reality may not necessarily is true positive. Due to more imbalanced precision and recall from resampled models, base model gives the best F1 score. However, this does not negate the usefulness of resampling techniques in such problems. If a business model wants to minimize false negatives (do not want to miss any opportunity to convert a customer) more than minimize false positive, resampling is a favored choice. On the contrary, if minimizing false positive is upheld, then base model (say, RandomForest here) is a choice.
 
+|model|resampling|precision|recall|f1|accuracy|auc|confusion_matrix|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|RF|base|0.936237|0.502712|
+
 ![prediction_metrics_conversion_rate_09212018](https://user-images.githubusercontent.com/34787111/46121621-73315400-c1c9-11e8-9fc5-348b61057d39.png)
 
 Table 1. Prediction metrics from both RandomForest and XGBoost using base and resampled datasets.
