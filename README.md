@@ -32,19 +32,19 @@ Figure 1. Receiver operating characteristics by RandomForest (left) and XGBoost 
 Table 1. Prediction metrics from both RandomForest and XGBoost using base and resampled datasets.
 
   Revisiting the metrics in table 1, base models have much better accuracy than resampling models. However, a number of them has better auc than base models, suggesting inappropriate usage of accuracy for evaluating the model performance. The metric confusion-matrix shows the exact values of true negatives (TN), false positive (FP), false negative (FN) and true positive (TP), respectively. Each classifier results in some values for all 4 categories.
-|feature|RandomForest|XGBoost|
-|:---:|:---:|:---:|
-|total_pages_visited|1.0|1.0|
-|new_user|0.229|0.292|
-|country_China|0.180|0.292|
-|age|0.060|0.498|
-|country_US|0.016|0.041|
-|country_UK|0.014|0.003|
-|country_Germany|0.005|0.024|
-|source_Direct|0.0004|0.03|
-|source_Ads|0.00008|0.003|
-|source_Seo|0.00002|0.031|
-
+  
+  |feature|RandomForest|XGBoost|
+  |:---:|:---:|:---:|
+  |total_pages_visited|1.0|1.0|
+  |new_user|0.229|0.292|
+  |country_China|0.180|0.292|
+  |age|0.060|0.498|
+  |country_US|0.016|0.041|
+  |country_UK|0.014|0.003|
+  |country_Germany|0.005|0.024|
+  |source_Direct|0.0004|0.03|
+  |source_Ads|0.00008|0.003|
+  |source_Seo|0.00002|0.031|
 
    Table 2. Feature importances from both RandomForest and XGBoost models using base dataset.
   
