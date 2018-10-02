@@ -1,5 +1,5 @@
 # Conversion rate: Exploring resampling on highly imbalanced data
-## This repo will cover data resampling on highly imblanced data and their effect on improving performance of selected machine learning algorithm. It will also briefly introduce what metrics should be selected for evaluating a model with originally imbalanced dataset. The bussiness recommendations to improving converstion rate have been provided based on results from machine learning models.
+## This repo covers data resampling on highly-imblanced raw data and explores their effect on improving performance of machine learning models. Besides, metrics selection has been introduced for evaluating a model with originally imbalanced dataset. The bussiness recommendations to improving converstion rate have also been provided based on results predicted from machine learning models.
 
 (Step-by-step implementation of this problem shown in the "ConversionRate_sampling.ipynb"; standalone coding shown in the "ConversionRate.py".)
 
@@ -71,7 +71,7 @@ Table 1. Prediction metrics from both RandomForest and XGBoost using base and re
     
   What if we removed the feature "total_pages_converted"? Are machine learning algorithms able to give reasonable predictions using the remaining features. We repeated the data sampling and modeling processes as described above. Unfortunately, all the models result in very poor prediction, very low precision and true positive. It is interesting to find that base models result in the best accuracy but zero in true positive. Again, predictive accuracy is not appropriate for evaluating models with imbalanced dataset. Besides, this result suggests that strong feature(s) like "total_pages_visited" here are of utmost importance for correct prediction by machine learning models.
   
-## 4. Summary and suggestion
+## 4. Summary and recommendations
 
   Data resampling was explored to balancing the original highly-imbalanced dataset. The model results suggest that resampling is able to improving recall significantly (at the cost of precison reduction). 
   
