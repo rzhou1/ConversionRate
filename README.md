@@ -15,7 +15,7 @@
 ## 2. Data resampling and modeling
   Before resampling, the original dataset was cleanned, pre-processed including binning, skewness reduction for numeric features, one-hot encoded (categorical feature transformation), and splitted into train and test datasets. The data resampling (only for train dataset) was achieved by open-source package imblearn. Here we resample the original data by random under-sampling, random over-sampling, synthetic minority over-sampling technique (SMOTE), SMOTEENN (over-sampling followed by under-sampling), and SMOTETomek (over-sampling followed by under-sampling), EasyEnsemble (ensemble sampling) and BalanceCascade (ensemble sampling). The original literatures for these resampling techniques are listed in the end.
 
-  RandomForest (minimizing variance) and XGBoost (minimizing bias) have been chosen for model. Both have been trained with either original dataset (base) or resampled train datasets and with optimized model parameters, and then both are used to predict the ORIGINAL test dataset. 
+  RandomForest and XGBoost have been chosen for model. Both have been trained with either original dataset (base) or resampled train datasets and with optimized model parameters, and then both are used to predict the ORIGINAL test dataset. 
 
 ## 3. Results and Discussion
 
@@ -77,7 +77,7 @@ Table 1. Prediction metrics from both RandomForest and XGBoost using base and re
   
   The feature 'total_pages_visited' has intrinsic correlation with conversion. More pages visiting is likely because people have already decided to converting. Promoting more page visits may or may not result in higher conversion rate. An A/B test can be designed to promoting pages visit to a group of web-visitors while the other group without any promotion. The two groups should have almost idential distribution in term of country, age, and new_user population.
 
-  China has much lower conversion rate compared to the remaining countries, though it has generally similar distributions in age and new_user population and source. This is likely western world based websites. Is there a promotion difference b/t western world and China? Or cultural difference b/t China and western world contributing to the conversion? Or translation inaccuracy? Or a strong competitor locally in China? All these should be investigated and there are huge room to improving conversion rate in China.
+  China has much lower conversion rate compared to the remaining countries, though it has generally similar distributions in age, new_user population and source. This is likely a western world based website. Is there a promotion difference b/t western world and China? Cultural difference b/t China and western world contributing to the conversion? Translation inaccuracy? A strong competitor locally in China? All these should be investigated and there are huge room to improving conversion rate in China.
   
   Young age has higher conversion rate. Thus, in the next promotion, targeting young population will result in higher conversion rate. It is necessary to ask why the service attracts more young people but not the other ages? Is it because of service nature or others? Also, there are large room to improving conversion rate by even leveling off all age groups to the young class.
 
