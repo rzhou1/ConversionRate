@@ -1,8 +1,6 @@
 # Conversion rate: Exploring resampling on highly imbalanced data
 ## This repo covers data resampling on highly-imblanced raw data and explores their effect on improving performance of machine learning models. Besides, metrics selection has been introduced for evaluating a model with originally imbalanced dataset. The bussiness recommendations to improving converstion rate have also been provided based on results predicted from machine learning models.
 
-(Step-by-step implementation of this problem shown in the "ConversionRate_sampling.ipynb"; standalone coding shown in the "ConversionRate.py".)
-
 ## 1. Background: about the problem and data imbalance
   The data revolution has a lot to do with the fact that now we are able to collect all sorts of data about people who buy something on our site as well as people who don't. This gives us a tremendous opportunity to understand what's working well (and potentially scale it even further) and what's not working well (and fix it).
   
